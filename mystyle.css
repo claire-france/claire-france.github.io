@@ -1,0 +1,234 @@
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #f0f4f8;
+  overflow-x: hidden;
+  color: #333;
+}
+
+/* Header Styles */
+header {
+  background-image: url("images/eiffel-tower.jpg"); /* Add an image of the Eiffel Tower */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  font-family: "Great Vibes", cursive;
+  position: relative;
+  z-index: 1;
+}
+
+header p {
+  font-size: 1.8em;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Dynamic Date Counter */
+#days-count {
+  font-weight: bold;
+  color: #ffcc80;
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin: 50px 0;
+}
+
+.timeline-item:nth-child(even) {
+  text-align: left;
+}
+
+.timeline-item:nth-child(odd) {
+  text-align: right;
+}
+
+.timeline-item-content {
+  position: relative;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  width: 45%;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.timeline-item:nth-child(even) .timeline-item-content {
+  left: 55%;
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content {
+  left: 0;
+}
+
+.timeline-item-content.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.timeline-item-content h2 {
+  font-size: 1.8em;
+  color: #ff7e5f;
+  margin-bottom: 10px;
+}
+
+.timeline-item-content p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.timeline-item-content .date {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.timeline-item-content img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.timeline-item-content .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ff7e5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: #ff7e5f;
+}
+
+.timeline-item:nth-child(even) .icon {
+  left: calc(-20px - 20px);
+}
+
+.timeline-item:nth-child(odd) .icon {
+  right: calc(-20px - 20px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .timeline::before {
+    left: 4%;
+  }
+
+  .timeline-item-content {
+    width: 100%;
+    left: 0 !important;
+    margin-left: 30px;
+  }
+
+  .timeline-item:nth-child(even) .icon,
+  .timeline-item:nth-child(odd) .icon {
+    left: -20px;
+  }
+
+  .timeline-item {
+    text-align: left;
+  }
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #ff7e5f;
+  color: white;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 1em;
+}
+
+/* Scroll Animation */
+.animated {
+  visibility: hidden;
+}
+
+.animated.show {
+  visibility: visible;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: French Flag Divider */
+.divider {
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #002395, #ffffff, #ed2939);
+  margin: 50px 0;
+}
+
+/* Places Visited List */
+.places-visited {
+  margin-top: 15px;
+  padding-left: 20px;
+  color: #333;
+}
+
+.places-visited li {
+  margin-bottom: 5px;
+  list-style-type: disc;
+}
